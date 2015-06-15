@@ -94,7 +94,7 @@ The `browserify` ingredient runs your JavaScript files through [Browserify](http
 var panacea = require('panacea-assets');
 
 panacea.task('js', function(mix) {
-    mix.sass('app.js');
+    mix.browserify('app.js');
 });
 ```
 
