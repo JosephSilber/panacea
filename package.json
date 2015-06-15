@@ -1,6 +1,6 @@
 {
   "name": "panacea-assets",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Panacea gulp assets package",
   "main": "src/index.js",
   "repository": {

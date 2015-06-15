@@ -22,16 +22,15 @@ function compileOptions(file, options) {
     options = _.extend({
         base     : 'resources/assets/js',
         manifest : 'storage/app/rev-manifest.json',
-        output   : 'js',
+        prefix   : 'js',
         publish  : 'public',
     }, options);
 
-    options.name     = _.join(options.output, file);
-    options.base     = _.base(options.base);
-    options.output   = _.base(options.publish, options.output);
+    options.name     = _.join(options.prefix, file);
+    options.source   = _.base(options.base, file);
+    options.publish  = _.base(options.publish);
     options.manifest = _.base(options.manifest);
-    options.source   = _.join(options.base, file);
-    options.clear    = _.join(options.output, file);
+    options.clear    = _.join(options.publish, options.name);
 
     return options;
 }
@@ -55,7 +54,7 @@ function compileScripts(options) {
         .pipe(sourcemaps.init({ loadMaps: true }))
         .pipe(uglify())
         .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest(options.output))
+        .pipe(gulp.dest(options.publish))
         .pipe(rev.manifest(options.manifest, { merge : true }))
         .pipe(gulp.dest(_.base()));
 }
