@@ -10,7 +10,7 @@
 
 ## Introduction
 
-Panacea provides a clean API for defining basic Gulp tasks for your application.
+Panacea provides a clean API for your Gulp tasks, with some nice predefined mixins.
 
 ## Motivation
 
