@@ -60,7 +60,7 @@ panacea.task('js', function(mix) {
 });
 ```
 
-This syntax is very similar to gulp's `task` method, and actually calls `gulp.task()` internally. You can them simply trigger it with `gulp css` or `gulp js`.
+This syntax is very similar to gulp's `task` method, and actually calls `gulp.task()` internally. You can then simply trigger it with `gulp css` or `gulp js`.
 
 Of course, just like with Gulp, you may pass an array as a task and Panacea will register a new Gulp task that comprises the tasks listed in the array:
 
@@ -108,7 +108,7 @@ The `sass` ingredient compiles your `sass`/`scss` files into valid `css`:
 var panacea = require('panacea-assets');
 
 panacea.task('css', function(mix) {
-    mix.sass('app.scss')
+    mix.sass('app.scss');
 });
 ```
 
@@ -124,7 +124,7 @@ The `templates` ingredient compiles all your HTML templates into a simple JSON f
 var panacea = require('panacea-assets');
 
 panacea.task('templates', function(mix) {
-    mix.templates('templates')
+    mix.templates('templates');
 });
 ```
 
@@ -136,8 +136,8 @@ Here you can see a prettified example of the compiled `templates.json` file:
 
 ```json
 {
-    "users.index": "Contents of views/templates/users/index.html",
-    "users.show": "Contents of views/templates/users/show.html"
+    "users.index": "Contents of resources/views/templates/users/index.html",
+    "users.show": "Contents of resources/views/templates/users/show.html"
 }
 ```
 
@@ -160,7 +160,7 @@ module.exports = function getTemplate(template) {
 You can then simply require any template in your JS files:
 
 ```js
-// resources/assets/js/templates.js
+// resources/assets/js/users.js
 
 var getTemplate = require('./templates.js');
 
