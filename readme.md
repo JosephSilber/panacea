@@ -1,16 +1,13 @@
 # Panacea
 
-- [Introduction](#introduction)
+Panacea provides a clean API for your Gulp tasks, with some nice predefined mixins.
+
 - [Motivation](#motivation)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Sample Gulp File](#sample-gulp-file)
 - [Laravel Helper](#laravel-helper)
 - [License](#license)
-
-## Introduction
-
-Panacea provides a clean API for your Gulp tasks, with some nice predefined mixins.
 
 ## Motivation
 
