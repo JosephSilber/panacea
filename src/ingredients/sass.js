@@ -2,7 +2,6 @@ var _ = require('../utils');
 var autoprefixer = require('gulp-autoprefixer');
 var gulp = require('gulp');
 var plumber = require('gulp-plumber');
-var rename = require('gulp-rename');
 var rev = require('gulp-rev');
 var sass = require('gulp-ruby-sass');
 var sourcemaps = require('gulp-sourcemaps');
@@ -14,19 +13,16 @@ var sourcemaps = require('gulp-sourcemaps');
  * @param  {object|null}  options
  * @return {object}
  */
-function compileOptions(file, options) {
+function compileOptions(path, options) {
     options = _.extend({
         base     : 'resources/assets/sass',
         manifest : 'storage/app/rev-manifest.json',
-        publish  : 'public',
-        output   : 'css',
+        publish  : 'public/css',
         style    : 'compressed',
     }, options);
 
-    options.filename = file.replace(/\..{2,4}$/, '.css');
-    options.rename   = _.join(options.output, options.filename);
-    options.source   = _.base(options.base, file);
-    options.clear    = _.base(options.publish, options.rename);
+    options.source   = _.base(options.base, path);
+    options.clear    = _.base(options.publish);
     options.manifest = _.base(options.manifest);
 
     return options;
@@ -42,7 +38,6 @@ function compileSass(options) {
     sass(options.source, { style: options.style, sourcemap: true })
         .pipe(plumber())
         .pipe(autoprefixer())
-        .pipe(rename(options.rename))
         .pipe(rev())
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(options.publish))
@@ -57,10 +52,10 @@ function compileSass(options) {
  * @param  {object}  options
  * @return void
  */
-module.exports = function(file, options) {
-    options = compileOptions(file, options);
+module.exports = function(path, options) {
+    options = compileOptions(path, options);
 
-    _.clear(options.clear).then(function () {
+    _.clearDirectory(options.clear).then(function () {
         compileSass(options);
     });
 };

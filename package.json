@@ -1,6 +1,6 @@
 {
   "name": "panacea-assets",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Panacea provides a clean API for your Gulp tasks, with some nice predefined mixins",
   "main": "src/index.js",
   "repository": {

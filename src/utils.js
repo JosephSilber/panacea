@@ -55,6 +55,18 @@ function clear(file) {
 }
 
 /**
+ * Clear out the contents of a directory.
+ *
+ * @param  {string}  directory
+ * @return {Promise}
+ */
+function clearDirectory(directory) {
+    if ( ! endsWith(directory, '/')) directory += '/';
+
+    return del(directory + '**/*');
+}
+
+/**
  * Get the regex used to verify if a file should be deleted.
  *
  * @param  {string}  file
@@ -94,9 +106,10 @@ function endsWith(string, suffix) {
 }
 
 module.exports = {
-    base       : base,
-    clear      : clear,
-    endsWith   : endsWith,
-    extend     : extend,
-    join       : join,
+    base: base,
+    clear: clear,
+    clearDirectory: clearDirectory,
+    endsWith: endsWith,
+    extend: extend,
+    join: join,
 };
