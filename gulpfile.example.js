@@ -7,7 +7,7 @@ panacea.tasks({
     },
 
     css: function (mix) {
-        mix.sass('app.scss');
+        mix.sass();
     },
 
     js: function (mix) {

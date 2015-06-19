@@ -105,11 +105,11 @@ The `sass` ingredient compiles your `sass`/`scss` files into valid `css`:
 var panacea = require('panacea-assets');
 
 panacea.task('css', function(mix) {
-    mix.sass('app.scss');
+    mix.sass();
 });
 ```
 
-This will look for the `resources/assets/sass/app.scss` file, and compile it to `public/css/app.css`. In the process, the file will be minified, versioned and sourcemapped.
+This will look for the `resources/assets/sass` directory, and compile all `sass`/`scss` files to `public/css`. In the process, the file swill be minified, versioned and sourcemapped.
 
 > **Note:** The `sass` ingredient uses ruby sass, so be sure to [have that installed](http://sass-lang.com/install).
 
@@ -184,7 +184,7 @@ panacea.tasks({
     },
 
     css: function (mix) {
-        mix.sass('app.scss');
+        mix.sass();
     },
 
     js: function (mix) {
