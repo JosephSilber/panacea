@@ -1,3 +1,9 @@
+# Deprecated.
+
+## Use [`laravel-mix`](https://laravel.com/docs/5.4/mix) instead.
+
+---
+
 # Panacea
 
 Panacea provides a clean API for your Gulp tasks, with some nice predefined mixins.
